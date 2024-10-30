@@ -27,3 +27,43 @@ main {
     padding: 0 45px;
     max-width: 508px;
 }
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #D2D2D2;
+    margin-bottom: 45px;
+}
+
+.item-graphic {
+    font-size: 78.72;
+}
+.item-name {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.item-ingredients {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #8B8B8B;
+}
+
+.item-price {
+    font-size: 20px;
+}
+
+.add-item-btn {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    background: #fff;
+    border: 1.5px solid #DEDEDE;
+    border-radius: 50%;
+    font-size: 32px;
+    font-family: "Inter", sans-serif;
+    color: #3C3C3C;
+
+}
