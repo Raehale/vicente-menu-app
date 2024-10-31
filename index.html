@@ -1,37 +1,21 @@
-<html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" href="index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200&family=Noto+Sans:wght@100..900&family=Smythe&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
         <header>
-            <h1>Jimmy's Diner</h1>
-            <h2>The best burgers and pizzas in town.</h2>
+            <div class="container">
+                <h1>Jimmy's Diner</h1>
+                <h2>The best burgers and pizzas in town.</h2>
+            </div>
         </header>
-        <main>
-            <section id="menu">
-                <div class="menu-item">
-                    <p class="item-graphic">🍔</p>
-                    <div>
-                        <h3 class="item-name">Sample Item</h3>
-                        <p class="item-ingredients">Ingredients of menu item.</p>
-                        <p class="item-price">$69</p>
-                    </div>
-                    <button class="add-item-btn">+</button>
-                </div>
-                <div class="menu-item">
-                    <p class="item-graphic">🍔</p>
-                    <div>
-                        <h3 class="item-name">Sample Item</h3>
-                        <p class="item-ingredients">Ingredients of menu item.</p>
-                        <p class="item-price">$69</p>
-                    </div>
-                    <button class="add-item-btn">+</button>
-                </div>
-            </section>
+        <main class="container">
+            <section id="menu"></section>
         </main>
-	<script src="index.js"></script>
+	<script src="index.js" type="module"></script>
     </body>
 </html>
