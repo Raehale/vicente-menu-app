@@ -3,13 +3,25 @@
     padding: 0;
     font-family: "Smythe", system-ui;
     font-weight: normal;
-} 
+}
+
+.align-right {
+    margin-left: auto;
+}
+
+.big-text {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.hidden {
+    display: none;
+}
 
 header {
     background-image: url("banner-bg.png");
     background-size: cover;
     color: #fff;
-    padding: 36px 0 60px;
     margin-bottom: 16px;
 }
 
@@ -18,13 +30,13 @@ h1 {
     margin-bottom: 8px;
 }
 
-h2 {
+.slogan {
     font-size: 22.42px;
 }
 
 .container {
     margin: auto;
-    padding: 0 46px;
+    padding: 56px 46px;
     max-width: 508px;
 }
 
@@ -43,10 +55,6 @@ h2 {
     width: 108px;
     text-align: center;
 }
-.item-name {
-    font-size: 28px;
-    margin-bottom: 8px;
-}
 
 .item-ingredients {
     font-size: 16px;
@@ -61,11 +69,20 @@ h2 {
 .add-item-btn {
     min-width: 50px;
     height: 50px;
-    margin-left: auto;
     background: #fff;
     border: 1.5px solid #DEDEDE;
     border-radius: 50%;
     font-size: 16px;
     color: #3C3C3C;
     padding: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+.order-line {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }

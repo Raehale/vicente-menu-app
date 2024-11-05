@@ -10,11 +10,22 @@
         <header>
             <div class="container">
                 <h1>Jimmy's Diner</h1>
-                <h2>The best burgers and pizzas in town.</h2>
+                <p class="slogan">The best burgers and pizzas in town.</p>
             </div>
         </header>
         <main class="container">
-            <section id="menu"></section>
+            <section id="menu-el"></section>
+            <section class="hidden">
+                <h2 class="big-text">Your Order</h2>
+                <div id="order-el">
+                </div>
+                <hr>
+                <div class="order-line">
+                    <p class="big-text">Total price:</p>
+                    <p class="item-price align-right">$0</p>
+                </div>
+                <button id="complete-order-btn">Complete order</button>
+            </section>
         </main>
 	<script src="index.js" type="module"></script>
     </body>
