@@ -15,16 +15,20 @@
         </header>
         <main class="container">
             <section id="menu-el"></section>
-            <section class="hidden">
+            <!-- <section class="hidden"> -->
+            <section>
                 <h2 class="big-text">Your Order</h2>
-                <div id="order-el">
-                </div>
+                <div id="order-el"><div class="order-line">
+                    <p class="big-text">${name}</p>
+                    <button class="remove-item-btn" data-index="${index}">remove</button>
+                    <p class="item-price align-right">$${price}</p>
+                </div></div>
                 <hr>
                 <div class="order-line">
                     <p class="big-text">Total price:</p>
-                    <p class="item-price align-right">$0</p>
+                    <p id="total-price-el" class="item-price align-right">$0</p>
                 </div>
-                <button id="complete-order-btn">Complete order</button>
+                <button id="complete-order-btn" class="color-btn">Complete order</button>
             </section>
         </main>
 	<script src="index.js" type="module"></script>
