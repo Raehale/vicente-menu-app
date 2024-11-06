@@ -77,12 +77,38 @@ h1 {
     padding: auto;
 }
 
-h2 {
+h2.big-text {
     text-align: center;
+    margin-bottom: 64px;
 }
 
 .order-line {
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+hr {
+    border: 1px solid #393333;
+    margin: 10px 0;
+}
+
+.remove-item-btn {
+    border: none;
+    background: none;
+    font: 12px "Noto Sans", sans-serif;
+    color: #BBBBBB;
+    align-self: center;
+    margin-bottom: 4px;
+}
+
+.color-btn {
+    margin-top: 52px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    background: #16DB99;
+    color: #fff;
+    font: bold 16px "Noto Sans", sans-serif;
+    padding: 18px;
 }
