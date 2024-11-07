@@ -3,6 +3,8 @@ import { menuArray } from "./data.js";
 const menuEl = document.getElementById("menu-el")
 const orderEl = document.getElementById("order-el")
 const totalPriceEl = document.getElementById("total-price-el")
+const completeOrderBtn = document.getElementById("complete-order-btn")
+const paymentForm = document.getElementById("payment-form")
 const orderArray = []
 
 renderMenu()
@@ -25,9 +27,11 @@ orderEl.addEventListener("click", function(e){
     }
 })
 
+completeOrderBtn.addEventListener("click", () => toggleHidden(paymentForm))
+
 function addItemToOrder(itemId){
     if (orderArray.length === 0){
-        orderEl.parentElement.classList.remove("hidden")
+        toggleHidden(orderEl.parentElement)
     }
     orderArray.push(menuArray[itemId])
 }
@@ -38,7 +42,7 @@ function renderOrder(){
             const {name, price} = currentItem
             return `
                 <div class="order-line">
-                    <p class="big-text">${name}</p>
+                    <h3>${name}</h3>
                     <button class="remove-item-btn" data-index="${index}">remove</button>
                     <p class="item-price align-right">$${price}</p>
                 </div>
@@ -46,7 +50,7 @@ function renderOrder(){
         }).join("")
         getTotalPrice()
     } else{
-        orderEl.parentElement.classList.add("hidden")
+        toggleHidden(orderEl.parentElement)
     }
 }
 
@@ -62,7 +66,7 @@ function renderMenu(){
         return innerHTML + `<div class="menu-item">
                     <p class="item-graphic">${emoji}</p>
                     <div>
-                        <p class="big-text">${name}</p>
+                        <h3>${name}</h3>
                         <p class="item-ingredients">${ingredients.join(", ")}</p>
                         <p class="item-price">$${price}</p>
                     </div>
@@ -70,5 +74,9 @@ function renderMenu(){
                         <i class="fa-regular fa-plus"></i>
                     </button>
                 </div>`
-    },"")
+    },`<h2>Jimmy's Menu</h2>`)
+}
+
+function toggleHidden(element){
+    element.classList.toggle("hidden")
 }

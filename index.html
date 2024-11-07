@@ -16,15 +16,45 @@
         <main class="container">
             <section id="menu-el"></section>
             <section class="hidden">
-                <h2 class="big-text">Your Order</h2>
+                <h2>Your Order</h2>
                 <div id="order-el"></div>
                 <hr>
                 <div class="order-line">
-                    <p class="big-text">Total price:</p>
+                    <h3>Total price:</h3>
                     <p id="total-price-el" class="item-price align-right">$0</p>
                 </div>
                 <button id="complete-order-btn" class="color-btn">Complete order</button>
             </section>
+            <form id="payment-form" class="hidden">
+                <h2>Enter card details</h2>
+                <label for="customerName">Name</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    name="customerName"
+                    placeholder="Enter your name"
+                    required
+                >
+                <label for="cardNumber">Card number</label>
+                <input
+                    type="text"
+                    id="cardNumber"
+                    name="cardNumber"
+                    placeholder="xxxx-xxxx-xxxx-xxxx"
+                    pattern="[0-9]{16}"
+                    required
+                >
+                <label for="cardCVV">CVV</label>
+                <input
+                    type="text"
+                    id="cardCVV"
+                    name="cardCVV"
+                    placeholder="xxx"
+                    pattern="[0-9]{3}"
+                    required
+                >
+                <button class="color-btn">Pay</button>
+            </form>
         </main>
 	<script src="index.js" type="module"></script>
     </body>
