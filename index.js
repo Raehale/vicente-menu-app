@@ -2,22 +2,25 @@ import { menuArray } from "./data.js";
 
 const menuEl = document.getElementById("menu-el")
 const orderEl = document.getElementById("order-el")
-const totalPriceEl = document.getElementById("total-price-el")
-const completeOrderBtn = document.getElementById("complete-order-btn")
+const paymentModal = document.getElementById("payment-modal")
+const closeBtn = document.getElementById("close-btn")
 const paymentForm = document.getElementById("payment-form")
-const orderArray = []
-
+const formInputs = paymentForm.getElementsByTagName("input")
+let paymentFormData
+let orderArray = []
+let hasPaid = false
 renderMenu()
 
 menuEl.addEventListener("click", function(e){
     const targetEl = e.target
     if (targetEl.classList.contains("add-item-btn")){
         addItemToOrder(targetEl.dataset.id)
+        hasPaid = false
     }
     else if (targetEl.parentElement.classList.contains("add-item-btn")){
         addItemToOrder(targetEl.parentElement.dataset.id)
+        hasPaid = false
     }
-    renderOrder()
 })
 
 orderEl.addEventListener("click", function(e){
@@ -27,35 +30,71 @@ orderEl.addEventListener("click", function(e){
     }
 })
 
-completeOrderBtn.addEventListener("click", () => toggleHidden(paymentForm))
+closeBtn.addEventListener("click", () => {
+    toggleHidden(paymentModal)
+    clearFormInputs(formInputs)
+})
+
+paymentForm.addEventListener("submit", function(e){
+    e.preventDefault()
+    
+    paymentFormData = new FormData(paymentForm)
+    hasPaid = true
+    clearFormInputs(formInputs)
+    orderArray = []
+    renderOrder()
+    toggleHidden(paymentModal)
+})
+
+function clearFormInputs(inputs){
+    for(let input of inputs){
+        input.value = ""
+    }
+}
 
 function addItemToOrder(itemId){
-    if (orderArray.length === 0){
-        toggleHidden(orderEl.parentElement)
+    if (orderEl.classList.contains("hidden")){
+        toggleHidden(orderEl)
     }
     orderArray.push(menuArray[itemId])
+    renderOrder()
 }
 
 function renderOrder(){
     if(orderArray.length > 0){
-        orderEl.innerHTML = orderArray.map(function(currentItem, index){
-            const {name, price} = currentItem
-            return `
+        let tempHTML = `<h2>Your Order</h2>` +
+            orderArray.map(function(currentItem, index){
+                const {name, price} = currentItem
+                return `
+                    <div class="order-line">
+                        <h3>${name}</h3>
+                        <button class="remove-item-btn" data-index="${index}">remove</button>
+                        <p class="item-price align-right">$${price}</p>
+                    </div>
+                `
+            }).join("") +
+            `<hr>
                 <div class="order-line">
-                    <h3>${name}</h3>
-                    <button class="remove-item-btn" data-index="${index}">remove</button>
-                    <p class="item-price align-right">$${price}</p>
+                    <h3>Total price:</h3>
+                    <p id="total-price-el" class="item-price align-right">${getTotalPrice()}</p>
                 </div>
-            `
-        }).join("")
-        getTotalPrice()
-    } else{
-        toggleHidden(orderEl.parentElement)
+                <button id="complete-order-btn" class="color-btn">Complete order</button>`
+        orderEl.innerHTML = tempHTML
+        const completeOrderBtn = document.getElementById("complete-order-btn")
+        completeOrderBtn.addEventListener("click", () => toggleHidden(paymentModal))
+    }
+    else if(hasPaid){
+        orderEl.innerHTML = `<div class="confirm-message">
+                <p>Thanks, ${paymentFormData.get("customerName")}! Your Order is on it's way!</p>
+            </div>`
+    }
+    else{
+        toggleHidden(orderEl)
     }
 }
 
 function getTotalPrice(){
-    totalPriceEl.innerText = `$${
+    return `$${
         orderArray.reduce((totalPrice, currentItem) => totalPrice + currentItem.price, 0)
     }`
 }

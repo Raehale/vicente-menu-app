@@ -1,5 +1,6 @@
 <html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200&family=Noto+Sans:wght@100..900&family=Smythe&display=swap" rel="stylesheet">
@@ -15,46 +16,40 @@
         </header>
         <main class="container">
             <section id="menu-el"></section>
-            <section class="hidden">
-                <h2>Your Order</h2>
-                <div id="order-el"></div>
-                <hr>
-                <div class="order-line">
-                    <h3>Total price:</h3>
-                    <p id="total-price-el" class="item-price align-right">$0</p>
-                </div>
-                <button id="complete-order-btn" class="color-btn">Complete order</button>
+            <section id="order-el" class="hidden"></section>
+            <section id="payment-modal" class="modal-container ">
+                <form id="payment-form" class="modal">
+                    <button id="close-btn" type="button">X</button>
+                    <h2 class="form-title">Enter card details</h2>
+                    <label for="customerName">Name</label>
+                    <input
+                        type="text"
+                        id="customerName"
+                        name="customerName"
+                        placeholder="Enter your name"
+                        required
+                    >
+                    <label for="cardNumber">Card number</label>
+                    <input
+                        type="text"
+                        id="cardNumber"
+                        name="cardNumber"
+                        placeholder="xxxx-xxxx-xxxx-xxxx"
+                        pattern="[0-9]{16}"
+                        required
+                    >
+                    <label for="cardCVV">CVV</label>
+                    <input
+                        type="text"
+                        id="cardCVV"
+                        name="cardCVV"
+                        placeholder="xxx"
+                        pattern="[0-9]{3}"
+                        required
+                    >
+                    <button id="pay-btn" class="color-btn" >Pay</button>
+                </form>
             </section>
-            <form id="payment-form" class="hidden">
-                <h2>Enter card details</h2>
-                <label for="customerName">Name</label>
-                <input
-                    type="text"
-                    id="customerName"
-                    name="customerName"
-                    placeholder="Enter your name"
-                    required
-                >
-                <label for="cardNumber">Card number</label>
-                <input
-                    type="text"
-                    id="cardNumber"
-                    name="cardNumber"
-                    placeholder="xxxx-xxxx-xxxx-xxxx"
-                    pattern="[0-9]{16}"
-                    required
-                >
-                <label for="cardCVV">CVV</label>
-                <input
-                    type="text"
-                    id="cardCVV"
-                    name="cardCVV"
-                    placeholder="xxx"
-                    pattern="[0-9]{3}"
-                    required
-                >
-                <button class="color-btn">Pay</button>
-            </form>
         </main>
 	<script src="index.js" type="module"></script>
     </body>
