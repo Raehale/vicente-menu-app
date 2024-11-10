@@ -85,7 +85,7 @@ function renderOrder(){
     }
     else if(hasPaid){
         orderEl.innerHTML = `<div class="confirm-message">
-                <p>Thanks, ${paymentFormData.get("customerName")}! Your Order is on it's way!</p>
+                <p>Thanks, ${paymentFormData.get("customerName")}! Your order is on its way!</p>
             </div>`
     }
     else{
