@@ -1,11 +1,18 @@
-<html lang="en">
+<html lang="en"> // way to remember lang="en"
     <head>
+	    //sectioning these off w titles would help readability imo, just a preference
         <title>Jimmy's Diner Ordering App</title>
+	    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    
+    	<!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200&family=Noto+Sans:wght@100..900&family=Smythe&display=swap" rel="stylesheet">
+
+	<!-- font awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	    
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
@@ -20,9 +27,11 @@
             <section id="order-el" class="hidden"></section>
             <section id="payment-modal" class="modal-container hidden">
                 <form id="payment-form" class="modal">
+		    //love the way this button looks
                     <button id="close-btn" type="button">X</button>
                     <h2 class="form-title">Enter card details</h2>
                     <label for="customerName">Name</label>
+    		    //Ids should either be camalcase or cabob case
                     <input
                         type="text"
                         id="customerName"
@@ -48,6 +57,7 @@
                         pattern="[0-9]{3}"
                         required
                     >
+  		    //extra space in first button tag
                     <button id="pay-btn" class="color-btn" >Pay</button>
                 </form>
             </section>
@@ -55,3 +65,5 @@
 	<script src="index.js" type="module"></script>
     </body>
 </html>
+
+//html is well written too! indenting and spacing is really well done, the only things I noticed were either personal preferences or not that important.
