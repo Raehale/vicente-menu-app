@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: "Smythe", system-ui;
-    font-weight: normal;
+    font-weight: normal; //is this necessary, isn't normal the default font weight
     --white: #fff;
     --light-gray: #DEDEDE;
     --dark-gray: #8B8B8B;
@@ -11,6 +11,7 @@
     --accent-color-mid: #16DB99;
     --accent-color-dark: #065F46;
     --danger-color: #f11c1c;
+    // This is so cool! I didn't know you could add root colors like this.
 }
 
 .align-right {
@@ -43,6 +44,7 @@ h1 {
     padding: 56px 46px;
 }
 
+//could use a space here (h2, h3)
 h2,h3 {
     margin-bottom: 8px;
     font-size: 28px;
@@ -84,17 +86,20 @@ h2,h3 {
     font-size: 16px;
     color: var(--dark-gray);
 }
+//space
 .add-item-btn:hover,
 .add-item-btn:focus-visible {
     border-color: var(--accent-color-mid);
     background: var(--accent-color-mid);
     color: var(--white);
 }
+//space
 .add-item-btn:active {
     border-color: var(--white);
     background: var(--accent-color-dark);
 }
 
+//less space
 h2 {
     margin-bottom: 64px;
     text-align: center;
@@ -106,6 +111,7 @@ h2 {
     gap: 10px;
 }
 
+//This is super cool, I've never seen that plus thing
 h3:has(+ .remove-item-btn:active),
 .remove-item-btn:active + .item-price {
     color: var(--danger-color);
@@ -119,11 +125,15 @@ h3:has(+ .remove-item-btn:active),
     font: 12px "Noto Sans", sans-serif;
     color: var(--dark-gray);
 }
+//space
 .remove-item-btn:hover,
+//focus visible is really interesting!!!
 .remove-item-btn:focus-visible {
     color: var(--danger-color);
     font-weight: bold;
 }
+//space
+//Way to add an active psudo class! I always slack there
 .remove-item-btn:active {
     font-weight: bold;
 }
@@ -194,6 +204,7 @@ hr {
     font-family: "Noto Sans", sans-serif;
 }
 
+//It's been my understanding that you want to use classes for css and ids for js, I might be wrong on that though.
 #close-btn {
     position: absolute;
     top: 16px;
@@ -242,3 +253,7 @@ input {
 #pay-btn {
     margin-top: 22px;
 }
+
+//The css here is written super well, it's clear and easy to read, maybe some organizing like puting the headings next to 
+//eachother would clean it up more. I also noticed some spacing was missing, again small things. Super well done and thanks for 
+//teaching me those two new techniques!
